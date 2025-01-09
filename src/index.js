@@ -1,57 +1,21 @@
+import http from 'http';
+import express from 'express';
+import cors from 'cors';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
-import express from 'express';
-import http from 'http';
-import cors from 'cors';
-import { typeDefsUser } from './graphql/users/schema.graphql.js'
-import userQueryResolver from './graphql/users/query.resolver.js'
-// A schema is a collection of type definitions (hence "typeDefs")
-// that together define the "shape" of queries that are executed against
-// your data.
-
-// console.log(userSchema);
-console.log(userQueryResolver)
-const typeDefs = `#graphql
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
- type Book{
-    title:String
-    Author:String
- }
-
- type Query {
-
-    books:[Book]
- }
-`;
-
-const books = [
-    {
-        title: 'The Awakening',
-        author: 'Kate Chopin',
-    },
-    {
-        title: 'City of Glass',
-        author: 'Paul Auster',
-    },
-];
 
 
-const resolvers = {
-    Query: {
-        books: () => books,
-    },
-};
-
+import Schemas from "./graphql/index.graphql.js"
+import Resolvers  from "./graphql/index.resolver.js"
 
 
 const app = express();
 const httpServer = http.createServer(app);
 
 const server = new ApolloServer({
-    typeDefs: [typeDefsUser,typeDefs],
-    resolvers: userQueryResolver,
+    typeDefs: Schemas,
+    resolvers:Resolvers ,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
