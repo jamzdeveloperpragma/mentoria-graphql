@@ -1,7 +1,7 @@
-import { typeDefsSales } from "./sales/sales.graphl.js";
+import { typeDefsSale } from "./sales/graphql/schema.graphql.js";
 import { typeDefsUser } from "./users/graphql/schema.graphql.js";
 
 
 
 
-export default [typeDefsUser,typeDefsSales]
+export default [typeDefsUser,typeDefsSale]

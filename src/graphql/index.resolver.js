@@ -1,20 +1,19 @@
 
 import userQueryResolver from "./users/resolvers/query.resolver.js"
 import userMutationResolver from "./users/resolvers/mutation.resolver.js"
+import saleQueryResolver from "./sales/resolvers/query.resolver.js"
+import saleMutationResolver from "./sales/resolvers/mutation.resolver.js"
 
 
 export default {
     Query: {
-      //User Queries
-      //sale Queries
       // Book Queries
         ...userQueryResolver,
-        // ...salesQueryResolver
+        ...saleQueryResolver
     },
     Mutation:{
-    //User Mutations
-      //sale Mutations
       // Book Mutations
       ...userMutationResolver
+      ...saleMutationResolver
     }
 }
