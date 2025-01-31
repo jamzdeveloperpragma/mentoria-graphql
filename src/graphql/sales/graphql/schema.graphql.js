@@ -12,7 +12,7 @@ type Query {
 }
 
 type Mutation {
-  createSale(customer:String,item:String,amount:Number):Boolean
+  createSale(customer:String,item:String,amount:Float):Boolean
 }
 
 
@@ -21,7 +21,7 @@ type Sale{
     _id:ID
     customer:String
     item:String
-    amount:Number
+    amount:Float
 }
 
 type SaleSimple {

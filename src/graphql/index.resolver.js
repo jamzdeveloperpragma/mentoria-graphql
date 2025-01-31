@@ -13,7 +13,7 @@ export default {
     },
     Mutation:{
       // Book Mutations
-      ...userMutationResolver
+      ...userMutationResolver,
       ...saleMutationResolver
     }
 }
