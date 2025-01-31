@@ -15,7 +15,7 @@ export const createSaleService = (context,data) => {
     
     console.log(data)
 
-    usuarios.push(data)
+    sales.push(data)
     console.log(sales)
 
     return true
