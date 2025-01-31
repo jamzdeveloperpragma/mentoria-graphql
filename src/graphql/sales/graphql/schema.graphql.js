@@ -2,7 +2,6 @@
 
 
 const typeDefsSale =`#graphql
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
 
 type Query {
@@ -16,10 +15,9 @@ type Mutation {
 }
 
 
-
 type Sale{
     _id:ID
-    customer:String
+    customer:CustomerSimple #TODO: crear el modelo customer y hacer match
     item:String
     amount:Float
 }

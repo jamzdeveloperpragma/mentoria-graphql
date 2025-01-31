@@ -5,9 +5,9 @@ import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
 
-
 import Schemas from "./graphql/index.graphql.js"
-import Resolvers  from "./graphql/index.resolver.js"
+import Resolvers from "./graphql/index.resolver.js"
+import mongoose from './graphql/config/db/mongoose.db.js';
 
 
 const app = express();
@@ -15,11 +15,22 @@ const httpServer = http.createServer(app);
 
 const server = new ApolloServer({
     typeDefs: Schemas,
-    resolvers:Resolvers ,
+    resolvers: Resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
 await server.start();
+
+
+
+
+try {
+
+    mongoose.connect('mongodb://127.0.0.1:27017/graphql');
+    console.log('Connected db')
+} catch (err) {
+    console.log(err);
+}
 
 
 app.use(

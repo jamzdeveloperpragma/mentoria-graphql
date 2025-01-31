@@ -9,20 +9,3 @@ export default {
 }
 
 
-
-
-
-
-
-
-
-
-
-// {
-
-//     Query:{
-//      allUsers
-//    },--> consultas
-//     mutation:{}, --> cambios en servicios
-//     subscription:{} --> escucha en tiempo real con socket 
-// }

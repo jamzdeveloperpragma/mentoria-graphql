@@ -1,7 +1,7 @@
 
 
 
-const typeDefsUser =`#graphql
+const typeDefsUser = `#graphql
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
 
@@ -12,9 +12,17 @@ type Query {
 }
 
 type Mutation {
-  createUser(firstName:String,lastName:String,age:Int):Boolean
+  createUser(createUserInput:UserInput):Boolean
 }
 
+
+input UserInput{
+firstName:String
+lastName:String
+age:Int
+email:String
+password:String
+}
 
 
 type User{
