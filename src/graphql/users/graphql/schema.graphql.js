@@ -17,11 +17,11 @@ type Mutation {
 
 
 input UserInput{
-firstName:String
+firstName:String!
 lastName:String
 age:Int
-email:String
-password:String
+email:String!
+password:String!
 }
 
 

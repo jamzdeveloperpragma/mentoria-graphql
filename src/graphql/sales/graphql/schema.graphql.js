@@ -17,7 +17,7 @@ type Mutation {
 
 type Sale{
     _id:ID
-    customer:CustomerSimple #TODO: crear el modelo customer y hacer match
+    customer:String #TODO: crear el modelo customer y hacer match
     item:String
     amount:Float
 }

@@ -12,7 +12,8 @@ import mongoose from './graphql/config/db/mongoose.db.js';
 
 const app = express();
 const httpServer = http.createServer(app);
-
+app.use(cors());
+app.use(express.json());
 const server = new ApolloServer({
     typeDefs: Schemas,
     resolvers: Resolvers,
@@ -35,12 +36,11 @@ try {
 
 app.use(
     '/',
-    cors(),
-    express.json(),
     // expressMiddleware accepts the same arguments:
     // an Apollo Server instance and optional configuration options
     expressMiddleware(server, {
-        context: async ({ req }) => ({ token: req.headers.token }),
+        ///agregar la logica de extraccion de usuario, validaciones de headers
+        context: async ({ req }) => ({ token: req.headers.authorization }),
     }),
 );
 
