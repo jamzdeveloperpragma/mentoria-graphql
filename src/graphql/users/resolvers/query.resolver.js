@@ -1,11 +1,11 @@
-import { allUser } from "../services/user.service.js"
+import { allUser, allUserAdmin } from "../services/user.service.js"
 
 
 
 
 export default {
     allUsers: allUser,
-    allUserAdmin:allUser
+    allUserAdmin:allUserAdmin
 }
 
 
